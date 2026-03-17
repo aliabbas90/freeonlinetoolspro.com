@@ -279,4 +279,13 @@ export const tools: Tool[] = [
     metaTitle: "Free Tip Calculator — Split Bills & Calculate Tips",
     metaDescription: "Calculate tips and split bills for free. Choose tip percentage, split between people. Perfect for restaurants.",
   },
+  {
+    name: "Generateur d'Annonce",
+    slug: "annonce-generator",
+    description: "Creez des annonces parfaites pour Leboncoin, Vinted, Facebook Marketplace. Copiez en un clic.",
+    icon: "📢",
+    keywords: ["generateur annonce leboncoin", "creer annonce leboncoin", "modele annonce", "annonce vinted", "generateur annonce gratuit", "rediger annonce", "annonce facebook marketplace"],
+    metaTitle: "Generateur d'Annonce Gratuit — Leboncoin, Vinted, Marketplace",
+    metaDescription: "Creez des annonces parfaites pour Leboncoin, Vinted et Facebook Marketplace gratuitement. Options: echange, prix negociable, livraison. Copiez en un clic.",
+  },
 ];
