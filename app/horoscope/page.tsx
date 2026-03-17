@@ -53,41 +53,147 @@ export default function HoroscopePage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Space Background with Planets */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Stars */}
+      {/* Animated Solar System Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Stars layers */}
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.5), transparent),
             radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3), transparent),
-            radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,0.5), transparent),
+            radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,0.6), transparent),
             radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3), transparent),
             radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.4), transparent),
             radial-gradient(2px 2px at 15% 85%, rgba(255,255,255,0.3), transparent),
             radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.2), transparent),
-            radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.4), transparent),
-            radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.3), transparent),
-            radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.2), transparent)
+            radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.5), transparent),
+            radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.3), transparent),
+            radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.2), transparent),
+            radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 95% 30%, rgba(255,255,255,0.3), transparent),
+            radial-gradient(2px 2px at 75% 90%, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 35% 15%, rgba(255,255,255,0.5), transparent)
           `,
         }} />
-        {/* Planet 1 - Large purple */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle at 40% 40%, #7c3aed, #1e1b4b, transparent)" }} />
-        {/* Planet 2 - Small blue */}
-        <div className="absolute top-1/3 -left-10 w-32 h-32 rounded-full opacity-15"
-          style={{ background: "radial-gradient(circle at 35% 35%, #3b82f6, #1e3a5f, transparent)" }} />
-        {/* Planet 3 - Medium pink/orange */}
-        <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle at 30% 30%, #ec4899, #831843, transparent)" }} />
-        {/* Nebula glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07]"
-          style={{ background: "radial-gradient(circle, #7c3aed, #3b82f6, transparent)" }} />
-        {/* Saturn ring effect */}
-        <div className="absolute top-20 left-1/4 w-24 h-24 rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle at 40% 40%, #f59e0b, #92400e, transparent)" }}>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-3 rounded-full border border-yellow-500/20 rotate-12" />
+
+        {/* Nebula glow center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.06]"
+          style={{ background: "radial-gradient(circle, #7c3aed, #3b82f6, #ec4899, transparent)" }} />
+
+        {/* === SOLAR SYSTEM - Orbiting Planets === */}
+        <div className="absolute top-[15%] right-[5%] w-[400px] h-[400px] hidden md:block">
+          {/* Sun */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full"
+            style={{
+              background: "radial-gradient(circle at 40% 40%, #fbbf24, #f59e0b, #d97706)",
+              boxShadow: "0 0 40px rgba(251, 191, 36, 0.4), 0 0 80px rgba(251, 191, 36, 0.15)",
+            }} />
+
+          {/* Mercury orbit */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] rounded-full border border-white/5"
+            style={{ animation: "orbit 8s linear infinite" }}>
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full"
+              style={{ background: "radial-gradient(circle at 35% 35%, #a3a3a3, #525252)" }} />
+          </div>
+
+          {/* Venus orbit */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rounded-full border border-white/5"
+            style={{ animation: "orbit 12s linear infinite reverse" }}>
+            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full"
+              style={{ background: "radial-gradient(circle at 35% 35%, #fcd34d, #b45309)" }} />
+          </div>
+
+          {/* Earth orbit */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[170px] h-[170px] rounded-full border border-white/5"
+            style={{ animation: "orbit 18s linear infinite" }}>
+            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full"
+              style={{
+                background: "radial-gradient(circle at 35% 35%, #60a5fa, #1d4ed8)",
+                boxShadow: "0 0 8px rgba(96, 165, 250, 0.3)",
+              }}>
+              {/* Moon */}
+              <div className="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-gray-300"
+                style={{ animation: "orbit 3s linear infinite" }} />
+            </div>
+          </div>
+
+          {/* Mars orbit */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] rounded-full border border-white/5"
+            style={{ animation: "orbit 25s linear infinite" }}>
+            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
+              style={{ background: "radial-gradient(circle at 35% 35%, #ef4444, #991b1b)" }} />
+          </div>
+
+          {/* Jupiter orbit */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[290px] h-[290px] rounded-full border border-white/5"
+            style={{ animation: "orbit 40s linear infinite reverse" }}>
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full"
+              style={{
+                background: "radial-gradient(circle at 35% 35%, #d4a574, #92400e)",
+                boxShadow: "0 0 10px rgba(212, 165, 116, 0.2)",
+              }}>
+              {/* Jupiter band */}
+              <div className="absolute top-[40%] left-0 w-full h-[2px] bg-amber-800/40 rounded-full" />
+              <div className="absolute top-[55%] left-0 w-full h-[1px] bg-amber-700/30 rounded-full" />
+            </div>
+          </div>
+
+          {/* Saturn orbit */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full border border-white/5"
+            style={{ animation: "orbit 55s linear infinite" }}>
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              {/* Saturn body */}
+              <div className="w-6 h-6 rounded-full"
+                style={{ background: "radial-gradient(circle at 35% 35%, #fbbf24, #92400e)" }} />
+              {/* Saturn rings */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-3 rounded-full border border-amber-400/30 rotate-[25deg]" />
+            </div>
+          </div>
         </div>
+
+        {/* Floating planets for mobile */}
+        <div className="md:hidden">
+          <div className="absolute top-16 right-4 w-8 h-8 rounded-full opacity-40"
+            style={{ background: "radial-gradient(circle at 35% 35%, #fbbf24, #92400e)", animation: "float 6s ease-in-out infinite" }} />
+          <div className="absolute top-40 left-4 w-5 h-5 rounded-full opacity-30"
+            style={{ background: "radial-gradient(circle at 35% 35%, #60a5fa, #1d4ed8)", animation: "float 8s ease-in-out infinite 2s" }} />
+          <div className="absolute bottom-40 right-8 w-6 h-6 rounded-full opacity-25"
+            style={{ background: "radial-gradient(circle at 35% 35%, #ef4444, #991b1b)", animation: "float 7s ease-in-out infinite 1s" }} />
+        </div>
+
+        {/* Shooting star */}
+        <div className="absolute top-[20%] left-0 w-[100px] h-[1px] opacity-0"
+          style={{
+            background: "linear-gradient(90deg, transparent, white, transparent)",
+            animation: "shootingStar 8s ease-in-out infinite 3s",
+          }} />
+        <div className="absolute top-[60%] right-0 w-[80px] h-[1px] opacity-0"
+          style={{
+            background: "linear-gradient(90deg, transparent, white, transparent)",
+            animation: "shootingStar2 12s ease-in-out infinite 7s",
+          }} />
       </div>
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes orbit {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        @keyframes shootingStar {
+          0%, 95%, 100% { opacity: 0; transform: translate(0, 0) rotate(-35deg); }
+          97% { opacity: 1; }
+          98% { opacity: 0.8; transform: translate(300px, 150px) rotate(-35deg); }
+        }
+        @keyframes shootingStar2 {
+          0%, 93%, 100% { opacity: 0; transform: translate(0, 0) rotate(210deg); }
+          95% { opacity: 1; }
+          96% { opacity: 0.6; transform: translate(-250px, 120px) rotate(210deg); }
+        }
+      `}</style>
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 py-10">
