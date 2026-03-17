@@ -3,7 +3,8 @@ import { tools } from "@/lib/tools-registry";
 import ToolCard from "@/components/ToolCard";
 
 export default function Home() {
-  const otherTools = tools.filter((t) => t.slug !== "deal-finder");
+  const featured = ["deal-finder", "ai-humanizer", "rate-my-portfolio"];
+  const otherTools = tools.filter((t) => !featured.includes(t.slug));
 
   return (
     <div className="hero-gradient">
@@ -46,41 +47,97 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Featured: Deal Finder */}
-      <div className="mx-auto max-w-6xl px-4 pb-10">
+      {/* Featured Tools */}
+      <div className="mx-auto max-w-6xl px-4 pb-10 space-y-4">
+        <h2 className="text-xl font-semibold text-gray-300 mb-2">
+          Featured
+        </h2>
+
+        {/* AI Text Humanizer */}
+        <Link
+          href="/ai-humanizer"
+          className="block relative overflow-hidden rounded-2xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 via-indigo-500/5 to-blue-500/10 p-6 md:p-8 glow-hover group"
+          style={{ boxShadow: "0 0 40px rgba(139, 92, 246, 0.08)" }}
+        >
+          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-wider">
+            AI Powered
+          </div>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
+            <div className="text-5xl">🤖</div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-purple-400 transition-colors">
+                AI Text Humanizer
+              </h3>
+              <p className="text-gray-400 mb-3">
+                Make AI-generated text sound natural and human-written. Works
+                with ChatGPT, Claude, Gemini. Choose your tone.
+              </p>
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">Bypass AI detection</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">4 tone options</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">3 free/day</span>
+              </div>
+            </div>
+            <div className="text-indigo-400 group-hover:text-purple-400 transition-colors text-lg font-medium whitespace-nowrap">
+              Try it free →
+            </div>
+          </div>
+        </Link>
+
+        {/* Rate My Portfolio */}
+        <Link
+          href="/rate-my-portfolio"
+          className="block relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-cyan-500/10 p-6 md:p-8 glow-hover group"
+          style={{ boxShadow: "0 0 40px rgba(16, 185, 129, 0.08)" }}
+        >
+          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            AI Powered
+          </div>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
+            <div className="text-5xl">📊</div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors">
+                Rate My Portfolio / Resume
+              </h3>
+              <p className="text-gray-400 mb-3">
+                Get instant AI feedback on your portfolio or resume. Score out
+                of 10, strengths, weaknesses, and actionable tips.
+              </p>
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">Score out of 10</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">Actionable tips</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">2 free/day</span>
+              </div>
+            </div>
+            <div className="text-indigo-400 group-hover:text-emerald-400 transition-colors text-lg font-medium whitespace-nowrap">
+              Try it free →
+            </div>
+          </div>
+        </Link>
+
+        {/* Deal Finder */}
         <Link
           href="/deal-finder"
-          className="block relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-gradient-to-r from-yellow-500/10 via-amber-500/5 to-orange-500/10 p-8 md:p-10 glow-hover group"
-          style={{
-            boxShadow: "0 0 40px rgba(234, 179, 8, 0.08)",
-          }}
+          className="block relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-gradient-to-r from-yellow-500/10 via-amber-500/5 to-orange-500/10 p-6 md:p-8 glow-hover group"
+          style={{ boxShadow: "0 0 40px rgba(234, 179, 8, 0.08)" }}
         >
           <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-bold uppercase tracking-wider">
             Popular
           </div>
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
             <div className="text-5xl">💰</div>
             <div className="flex-1">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-yellow-400 transition-colors">
                 Smart Deal Finder
-              </h2>
-              <p className="text-gray-400 text-lg mb-3">
+              </h3>
+              <p className="text-gray-400 mb-3">
                 Find cheaper alternatives for any product. Compare prices across
                 Amazon, AliExpress, eBay, Walmart & more.
               </p>
-              <div className="flex flex-wrap gap-3 text-sm">
-                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">
-                  AirPods Pro dupes
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">
-                  Dyson alternatives
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">
-                  Budget tech
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">
-                  Save up to 80%
-                </span>
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">AirPods Pro dupes</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">Dyson alternatives</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">Save up to 80%</span>
               </div>
             </div>
             <div className="text-indigo-400 group-hover:text-yellow-400 transition-colors text-lg font-medium whitespace-nowrap">
