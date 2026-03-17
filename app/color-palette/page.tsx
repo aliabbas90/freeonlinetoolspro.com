@@ -60,7 +60,7 @@ export default function ColorPalettePage() {
       description="Extract the dominant colors from any image. Get hex codes and copy with one click."
     >
       <div className="space-y-4">
-        <label className="block w-full p-8 border-2 border-dashed border-gray-300 rounded-lg text-center cursor-pointer hover:border-blue-400 transition-colors">
+        <label className="block w-full p-8 border-2 border-dashed border-white/10 rounded-lg text-center cursor-pointer hover:border-blue-400 transition-colors">
           <input
             type="file"
             accept="image/*"
@@ -79,13 +79,13 @@ export default function ColorPalettePage() {
                 <button
                   key={c.hex}
                   onClick={() => copyColor(c.hex)}
-                  className="flex flex-col items-center gap-2 p-3 rounded-lg border border-gray-200 hover:shadow-md transition-all"
+                  className="flex flex-col items-center gap-2 p-3 rounded-lg border border-white/5 hover:shadow-md transition-all"
                 >
                   <div
                     className="w-full aspect-square rounded-lg"
                     style={{ backgroundColor: c.hex }}
                   />
-                  <span className="text-xs font-mono text-gray-700">
+                  <span className="text-xs font-mono text-gray-300">
                     {copied === c.hex ? "Copied!" : c.hex}
                   </span>
                 </button>

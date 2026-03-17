@@ -78,7 +78,7 @@ export default function FaviconGeneratorPage() {
           {/* Controls */}
           <div className="space-y-4">
             <div>
-              <label className="block text-sm text-gray-600 mb-1">
+              <label className="block text-sm text-gray-400 mb-1">
                 Text or Emoji (max 3 chars)
               </label>
               <input
@@ -86,13 +86,13 @@ export default function FaviconGeneratorPage() {
                 value={text}
                 onChange={(e) => setText(e.target.value.slice(0, 3))}
                 maxLength={3}
-                className="w-full p-3 border border-gray-300 rounded-lg text-2xl text-center text-gray-900"
+                className="w-full p-3 border border-white/10 rounded-lg text-2xl text-center text-gray-100"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm text-gray-600 mb-1">
+                <label className="block text-sm text-gray-400 mb-1">
                   Background
                 </label>
                 <input
@@ -103,7 +103,7 @@ export default function FaviconGeneratorPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">
+                <label className="block text-sm text-gray-400 mb-1">
                   Text Color
                 </label>
                 <input
@@ -116,7 +116,7 @@ export default function FaviconGeneratorPage() {
             </div>
 
             <div>
-              <label className="block text-sm text-gray-600 mb-1">
+              <label className="block text-sm text-gray-400 mb-1">
                 Font Size: {fontSize}px
               </label>
               <input
@@ -130,14 +130,14 @@ export default function FaviconGeneratorPage() {
             </div>
 
             <div>
-              <label className="block text-sm text-gray-600 mb-1">Shape</label>
+              <label className="block text-sm text-gray-400 mb-1">Shape</label>
               <div className="flex gap-2">
                 <button
                   onClick={() => setShape("square")}
                   className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                     shape === "square"
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-indigo-600 text-white"
+                      : "bg-white/5 text-gray-300 hover:bg-white/10"
                   }`}
                 >
                   Square
@@ -146,8 +146,8 @@ export default function FaviconGeneratorPage() {
                   onClick={() => setShape("circle")}
                   className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                     shape === "circle"
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-indigo-600 text-white"
+                      : "bg-white/5 text-gray-300 hover:bg-white/10"
                   }`}
                 >
                   Circle
@@ -160,7 +160,7 @@ export default function FaviconGeneratorPage() {
           <div className="flex flex-col items-center justify-center gap-4">
             {preview && (
               <>
-                <div className="bg-gray-100 p-6 rounded-xl">
+                <div className="bg-white/5 p-6 rounded-xl">
                   <img
                     src={preview}
                     alt="Favicon preview"
@@ -169,13 +169,13 @@ export default function FaviconGeneratorPage() {
                   />
                 </div>
                 <div className="flex gap-4">
-                  <div className="bg-gray-100 p-2 rounded">
+                  <div className="bg-white/5 p-2 rounded">
                     <img src={preview} alt="16px" className="w-4 h-4" />
                   </div>
-                  <div className="bg-gray-100 p-2 rounded">
+                  <div className="bg-white/5 p-2 rounded">
                     <img src={preview} alt="32px" className="w-8 h-8" />
                   </div>
-                  <div className="bg-gray-100 p-2 rounded">
+                  <div className="bg-white/5 p-2 rounded">
                     <img src={preview} alt="48px" className="w-12 h-12" />
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function FaviconGeneratorPage() {
         <div className="flex gap-3">
           <button
             onClick={downloadPng}
-            className="flex-1 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 transition-colors"
           >
             Download PNG
           </button>

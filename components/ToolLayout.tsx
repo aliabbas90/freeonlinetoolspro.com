@@ -15,14 +15,14 @@ export default function ToolLayout({
   children,
 }: ToolLayoutProps) {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
+    <div className="mx-auto max-w-4xl px-4 py-10">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">{title}</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">{description}</p>
+        <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-3">
+          {title}
+        </h1>
+        <p className="text-gray-400 max-w-2xl mx-auto">{description}</p>
       </div>
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        {children}
-      </div>
+      <div className="glass rounded-2xl p-6 md:p-8">{children}</div>
       <AdSlot className="mt-8" />
     </div>
   );

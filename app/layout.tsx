@@ -77,7 +77,7 @@ gtag('config', 'G-R63K771L2V');`}
         />
       )}
       <body
-        className={`${geistSans.variable} font-sans antialiased bg-gray-50 min-h-screen flex flex-col`}
+        className={`${geistSans.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

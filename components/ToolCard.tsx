@@ -5,13 +5,18 @@ export default function ToolCard({ tool }: { tool: Tool }) {
   return (
     <Link
       href={`/${tool.slug}`}
-      className="group block bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-200"
+      className="group glass rounded-2xl p-6 glow-hover block"
     >
-      <div className="text-3xl mb-3">{tool.icon}</div>
-      <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">
+      <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-200">
+        {tool.icon}
+      </div>
+      <h3 className="font-semibold text-white group-hover:text-indigo-400 transition-colors mb-1.5">
         {tool.name}
       </h3>
-      <p className="text-sm text-gray-500">{tool.description}</p>
+      <p className="text-sm text-gray-500 leading-relaxed">{tool.description}</p>
+      <div className="mt-4 text-xs text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity font-medium">
+        Use tool →
+      </div>
     </Link>
   );
 }

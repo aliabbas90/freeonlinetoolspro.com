@@ -110,30 +110,30 @@ export default function InvoiceGeneratorPage() {
         {/* Invoice Details */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Invoice #</label>
+            <label className="block text-sm text-gray-400 mb-1">Invoice #</label>
             <input
               type="text"
               value={invoiceNumber}
               onChange={(e) => setInvoiceNumber(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
             />
           </div>
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Date</label>
+            <label className="block text-sm text-gray-400 mb-1">Date</label>
             <input
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
             />
           </div>
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Due Date</label>
+            <label className="block text-sm text-gray-400 mb-1">Due Date</label>
             <input
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
             />
           </div>
         </div>
@@ -141,58 +141,58 @@ export default function InvoiceGeneratorPage() {
         {/* From / To */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <h3 className="font-medium text-gray-900">From</h3>
+            <h3 className="font-medium text-gray-100">From</h3>
             <input
               type="text"
               placeholder="Your name / company"
               value={from.name}
               onChange={(e) => setFrom({ ...from, name: e.target.value })}
-              className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
             />
             <input
               type="email"
               placeholder="Your email"
               value={from.email}
               onChange={(e) => setFrom({ ...from, email: e.target.value })}
-              className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
             />
             <textarea
               placeholder="Your address"
               value={from.address}
               onChange={(e) => setFrom({ ...from, address: e.target.value })}
               rows={2}
-              className="w-full p-2 border border-gray-300 rounded-lg resize-none text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg resize-none text-gray-100"
             />
           </div>
           <div className="space-y-2">
-            <h3 className="font-medium text-gray-900">Bill To</h3>
+            <h3 className="font-medium text-gray-100">Bill To</h3>
             <input
               type="text"
               placeholder="Client name / company"
               value={to.name}
               onChange={(e) => setTo({ ...to, name: e.target.value })}
-              className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
             />
             <input
               type="email"
               placeholder="Client email"
               value={to.email}
               onChange={(e) => setTo({ ...to, email: e.target.value })}
-              className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
             />
             <textarea
               placeholder="Client address"
               value={to.address}
               onChange={(e) => setTo({ ...to, address: e.target.value })}
               rows={2}
-              className="w-full p-2 border border-gray-300 rounded-lg resize-none text-gray-900"
+              className="w-full p-2 border border-white/10 rounded-lg resize-none text-gray-100"
             />
           </div>
         </div>
 
         {/* Items */}
         <div>
-          <h3 className="font-medium text-gray-900 mb-2">Items</h3>
+          <h3 className="font-medium text-gray-100 mb-2">Items</h3>
           <div className="space-y-2">
             {items.map((item) => (
               <div key={item.id} className="flex gap-2 items-start">
@@ -203,7 +203,7 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) =>
                     updateItem(item.id, "description", e.target.value)
                   }
-                  className="flex-1 p-2 border border-gray-300 rounded-lg text-gray-900"
+                  className="flex-1 p-2 border border-white/10 rounded-lg text-gray-100"
                 />
                 <input
                   type="number"
@@ -213,7 +213,7 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) =>
                     updateItem(item.id, "quantity", Number(e.target.value))
                   }
-                  className="w-20 p-2 border border-gray-300 rounded-lg text-gray-900"
+                  className="w-20 p-2 border border-white/10 rounded-lg text-gray-100"
                 />
                 <input
                   type="number"
@@ -224,7 +224,7 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) =>
                     updateItem(item.id, "price", Number(e.target.value))
                   }
-                  className="w-28 p-2 border border-gray-300 rounded-lg text-gray-900"
+                  className="w-28 p-2 border border-white/10 rounded-lg text-gray-100"
                 />
                 <span className="p-2 text-sm text-gray-500 w-24 text-right">
                   {currency}{(item.quantity * item.price).toFixed(2)}
@@ -232,7 +232,7 @@ export default function InvoiceGeneratorPage() {
                 {items.length > 1 && (
                   <button
                     onClick={() => removeItem(item.id)}
-                    className="p-2 text-red-500 hover:text-red-700"
+                    className="p-2 text-red-500 hover:text-red-400"
                   >
                     ✕
                   </button>
@@ -242,7 +242,7 @@ export default function InvoiceGeneratorPage() {
           </div>
           <button
             onClick={addItem}
-            className="mt-2 text-sm text-blue-600 hover:text-blue-800"
+            className="mt-2 text-sm text-indigo-400 hover:text-indigo-300"
           >
             + Add Item
           </button>
@@ -251,22 +251,22 @@ export default function InvoiceGeneratorPage() {
         {/* Tax & Currency */}
         <div className="flex gap-4">
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Tax %</label>
+            <label className="block text-sm text-gray-400 mb-1">Tax %</label>
             <input
               type="number"
               min={0}
               max={100}
               value={taxRate || ""}
               onChange={(e) => setTaxRate(Number(e.target.value))}
-              className="w-24 p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="w-24 p-2 border border-white/10 rounded-lg text-gray-100"
             />
           </div>
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Currency</label>
+            <label className="block text-sm text-gray-400 mb-1">Currency</label>
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="p-2 border border-gray-300 rounded-lg text-gray-900"
+              className="p-2 border border-white/10 rounded-lg text-gray-100"
             >
               <option value="$">$ USD</option>
               <option value="€">€ EUR</option>
@@ -278,35 +278,35 @@ export default function InvoiceGeneratorPage() {
         </div>
 
         {/* Totals */}
-        <div className="bg-gray-50 rounded-lg p-4 text-right space-y-1">
-          <div className="text-sm text-gray-600">
+        <div className="bg-white/5 rounded-lg p-4 text-right space-y-1">
+          <div className="text-sm text-gray-400">
             Subtotal: {currency}{subtotal.toFixed(2)}
           </div>
           {taxRate > 0 && (
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-400">
               Tax ({taxRate}%): {currency}{tax.toFixed(2)}
             </div>
           )}
-          <div className="text-xl font-bold text-gray-900">
+          <div className="text-xl font-bold text-gray-100">
             Total: {currency}{total.toFixed(2)}
           </div>
         </div>
 
         {/* Notes */}
         <div>
-          <label className="block text-sm text-gray-600 mb-1">Notes</label>
+          <label className="block text-sm text-gray-400 mb-1">Notes</label>
           <textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Payment terms, bank details, thank you note..."
             rows={3}
-            className="w-full p-2 border border-gray-300 rounded-lg resize-none text-gray-900"
+            className="w-full p-2 border border-white/10 rounded-lg resize-none text-gray-100"
           />
         </div>
 
         <button
           onClick={printInvoice}
-          className="w-full py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+          className="w-full py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 transition-colors"
         >
           Download / Print Invoice (PDF)
         </button>

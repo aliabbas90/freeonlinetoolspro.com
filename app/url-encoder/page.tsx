@@ -48,8 +48,8 @@ export default function UrlEncoderPage() {
             onClick={() => { setMode("encode"); setOutput(""); setError(""); }}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
               mode === "encode"
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-indigo-600 text-white"
+                : "bg-white/5 text-gray-300 hover:bg-white/10"
             }`}
           >
             Encode
@@ -58,8 +58,8 @@ export default function UrlEncoderPage() {
             onClick={() => { setMode("decode"); setOutput(""); setError(""); }}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
               mode === "decode"
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-indigo-600 text-white"
+                : "bg-white/5 text-gray-300 hover:bg-white/10"
             }`}
           >
             Decode
@@ -74,12 +74,12 @@ export default function UrlEncoderPage() {
               ? "Enter URL or text to encode..."
               : "Enter encoded URL to decode..."
           }
-          className="w-full h-32 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-gray-900"
+          className="w-full h-32 p-4 border border-white/10 rounded-lg font-mono text-sm focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
           spellCheck={false}
         />
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
             {error}
           </div>
         )}
@@ -88,14 +88,14 @@ export default function UrlEncoderPage() {
           <button
             onClick={process}
             disabled={!input.trim()}
-            className="flex-1 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 disabled:opacity-50 transition-colors"
           >
             {mode === "encode" ? "Encode URL" : "Decode URL"}
           </button>
           {output && (
             <button
               onClick={swap}
-              className="px-4 py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+              className="px-4 py-3 bg-white/5 text-gray-300 rounded-lg font-medium hover:bg-white/10 transition-colors"
             >
               ⇄
             </button>
@@ -105,10 +105,10 @@ export default function UrlEncoderPage() {
         {output && (
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-sm text-gray-600">Result:</label>
+              <label className="text-sm text-gray-400">Result:</label>
               <button
                 onClick={copy}
-                className="text-sm text-blue-600 hover:text-blue-800"
+                className="text-sm text-indigo-400 hover:text-indigo-300"
               >
                 {copied ? "Copied!" : "Copy"}
               </button>

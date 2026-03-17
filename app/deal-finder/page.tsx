@@ -19,7 +19,7 @@ const stores: Store[] = [
     icon: "📦",
     color: "bg-yellow-500 hover:bg-yellow-600",
     getUrl: (q) =>
-      `https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${AMAZON_TAG}`,
+      `https://www.amazon.fr/s?k=${encodeURIComponent(q)}&tag=${AMAZON_TAG}`,
     tip: "Best for fast shipping & reviews",
   },
   {
@@ -33,7 +33,7 @@ const stores: Store[] = [
   {
     name: "eBay",
     icon: "🏷️",
-    color: "bg-blue-500 hover:bg-blue-600",
+    color: "bg-indigo-500/100 hover:bg-indigo-600",
     getUrl: (q) =>
       `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(q)}&_sop=15`,
     tip: "Great for deals & used items",
@@ -101,12 +101,12 @@ export default function DealFinderPage() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && search()}
             placeholder="Enter a product name (e.g., 'AirPods Pro alternative')..."
-            className="flex-1 p-4 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="flex-1 p-4 border border-white/10 rounded-lg text-gray-100 focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent"
           />
           <button
             onClick={() => search()}
             disabled={!query.trim()}
-            className="px-6 py-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            className="px-6 py-4 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 disabled:opacity-50 transition-colors"
           >
             Find Deals
           </button>
@@ -124,7 +124,7 @@ export default function DealFinderPage() {
                     setQuery(term);
                     search(term);
                   }}
-                  className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                  className="px-3 py-1.5 bg-white/5 text-gray-300 rounded-full text-sm hover:bg-white/10 transition-colors"
                 >
                   {term}
                 </button>
@@ -136,11 +136,11 @@ export default function DealFinderPage() {
         {/* Results */}
         {searched && (
           <>
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <p className="text-blue-800 font-medium">
+            <div className="text-center p-4 bg-indigo-500/10 rounded-lg">
+              <p className="text-indigo-300 font-medium">
                 Searching for &quot;{searchQuery}&quot; across 6 stores
               </p>
-              <p className="text-sm text-blue-600 mt-1">
+              <p className="text-sm text-indigo-400 mt-1">
                 Click any store to see their prices and deals
               </p>
             </div>
@@ -165,11 +165,11 @@ export default function DealFinderPage() {
             </div>
 
             {/* Pro Tips */}
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">
+            <div className="bg-white/5 rounded-xl p-6">
+              <h3 className="font-semibold text-gray-100 mb-3">
                 💡 Money-Saving Tips
               </h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li>
                   ✓ <strong>Compare prices</strong> — Click multiple stores to
                   find the best deal
@@ -198,7 +198,7 @@ export default function DealFinderPage() {
                 setSearched(false);
                 setQuery("");
               }}
-              className="w-full py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+              className="w-full py-3 bg-white/5 text-gray-300 rounded-lg font-medium hover:bg-white/10 transition-colors"
             >
               Search Another Product
             </button>

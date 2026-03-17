@@ -50,8 +50,8 @@ export default function CssGradientPage() {
             onClick={() => setType("linear")}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
               type === "linear"
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-indigo-600 text-white"
+                : "bg-white/5 text-gray-300 hover:bg-white/10"
             }`}
           >
             Linear
@@ -60,8 +60,8 @@ export default function CssGradientPage() {
             onClick={() => setType("radial")}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
               type === "radial"
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-indigo-600 text-white"
+                : "bg-white/5 text-gray-300 hover:bg-white/10"
             }`}
           >
             Radial
@@ -71,7 +71,7 @@ export default function CssGradientPage() {
         {/* Colors */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Color 1</label>
+            <label className="block text-sm text-gray-400 mb-1">Color 1</label>
             <div className="flex gap-2">
               <input
                 type="color"
@@ -83,12 +83,12 @@ export default function CssGradientPage() {
                 type="text"
                 value={color1}
                 onChange={(e) => setColor1(e.target.value)}
-                className="flex-1 p-2 border border-gray-300 rounded-lg font-mono text-sm text-gray-900"
+                className="flex-1 p-2 border border-white/10 rounded-lg font-mono text-sm text-gray-100"
               />
             </div>
           </div>
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Color 2</label>
+            <label className="block text-sm text-gray-400 mb-1">Color 2</label>
             <div className="flex gap-2">
               <input
                 type="color"
@@ -100,7 +100,7 @@ export default function CssGradientPage() {
                 type="text"
                 value={color2}
                 onChange={(e) => setColor2(e.target.value)}
-                className="flex-1 p-2 border border-gray-300 rounded-lg font-mono text-sm text-gray-900"
+                className="flex-1 p-2 border border-white/10 rounded-lg font-mono text-sm text-gray-100"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function CssGradientPage() {
         {/* Angle */}
         {type === "linear" && (
           <div>
-            <label className="block text-sm text-gray-600 mb-1">
+            <label className="block text-sm text-gray-400 mb-1">
               Angle: {angle}°
             </label>
             <input
@@ -133,13 +133,13 @@ export default function CssGradientPage() {
         <div className="flex gap-3">
           <button
             onClick={copy}
-            className="flex-1 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 transition-colors"
           >
             {copied ? "Copied!" : "Copy CSS"}
           </button>
           <button
             onClick={randomize}
-            className="flex-1 py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+            className="flex-1 py-3 bg-white/5 text-gray-300 rounded-lg font-medium hover:bg-white/10 transition-colors"
           >
             Randomize
           </button>

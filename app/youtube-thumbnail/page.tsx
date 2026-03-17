@@ -96,7 +96,7 @@ export default function YoutubeThumbnailPage() {
             onChange={(e) => setUrl(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && getThumbnails()}
             placeholder="Paste YouTube video URL here..."
-            className="flex-1 p-4 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="flex-1 p-4 border border-white/10 rounded-lg text-gray-100 focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent"
           />
           <button
             onClick={getThumbnails}
@@ -108,7 +108,7 @@ export default function YoutubeThumbnailPage() {
         </div>
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
             {error}
           </div>
         )}
@@ -118,7 +118,7 @@ export default function YoutubeThumbnailPage() {
             {thumbnails.map((thumb) => (
               <div
                 key={thumb.size}
-                className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50"
+                className="flex items-center gap-4 p-4 border border-white/5 rounded-lg hover:bg-white/5"
               >
                 <img
                   src={thumb.url}
@@ -129,7 +129,7 @@ export default function YoutubeThumbnailPage() {
                   }}
                 />
                 <div className="flex-1">
-                  <div className="font-medium text-gray-900">{thumb.label}</div>
+                  <div className="font-medium text-gray-100">{thumb.label}</div>
                   <div className="text-sm text-gray-500">{thumb.size}</div>
                 </div>
                 <button

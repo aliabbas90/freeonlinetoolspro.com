@@ -42,7 +42,7 @@ export default function PasswordGeneratorPage() {
     const entropy = Math.log2(Math.pow(pool || 26, length));
     if (entropy < 40) return { label: "Weak", color: "text-red-600", bg: "bg-red-200", width: "25%" };
     if (entropy < 60) return { label: "Fair", color: "text-yellow-600", bg: "bg-yellow-200", width: "50%" };
-    if (entropy < 80) return { label: "Strong", color: "text-blue-600", bg: "bg-blue-200", width: "75%" };
+    if (entropy < 80) return { label: "Strong", color: "text-indigo-400", bg: "bg-blue-200", width: "75%" };
     return { label: "Very Strong", color: "text-green-600", bg: "bg-green-200", width: "100%" };
   };
 
@@ -56,13 +56,13 @@ export default function PasswordGeneratorPage() {
       <div className="space-y-6">
         {/* Generated Password */}
         {password && (
-          <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
-            <code className="flex-1 text-lg font-mono break-all text-gray-900">
+          <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
+            <code className="flex-1 text-lg font-mono break-all text-gray-100">
               {password}
             </code>
             <button
               onClick={copy}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors shrink-0"
+              className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-500 transition-colors shrink-0"
             >
               {copied ? "Copied!" : "Copy"}
             </button>
@@ -73,7 +73,7 @@ export default function PasswordGeneratorPage() {
         {password && (
           <div>
             <div className="flex justify-between text-sm mb-1">
-              <span className="text-gray-600">Strength</span>
+              <span className="text-gray-400">Strength</span>
               <span className={`font-medium ${s.color}`}>{s.label}</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -87,7 +87,7 @@ export default function PasswordGeneratorPage() {
 
         {/* Controls */}
         <div>
-          <label className="flex justify-between text-sm text-gray-600 mb-2">
+          <label className="flex justify-between text-sm text-gray-400 mb-2">
             <span>Length: {length}</span>
           </label>
           <input
@@ -109,7 +109,7 @@ export default function PasswordGeneratorPage() {
           ].map((opt) => (
             <label
               key={opt.label}
-              className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer"
+              className="flex items-center gap-2 text-sm text-gray-300 cursor-pointer"
             >
               <input
                 type="checkbox"
@@ -124,7 +124,7 @@ export default function PasswordGeneratorPage() {
 
         <button
           onClick={generate}
-          className="w-full py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+          className="w-full py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 transition-colors"
         >
           {password ? "Generate New Password" : "Generate Password"}
         </button>

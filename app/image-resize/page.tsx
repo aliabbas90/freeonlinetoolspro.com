@@ -83,7 +83,7 @@ export default function ImageResizePage() {
       description="Resize and compress images online. Reduce file size without losing quality. Runs in your browser."
     >
       <div className="space-y-4">
-        <label className="block w-full p-8 border-2 border-dashed border-gray-300 rounded-lg text-center cursor-pointer hover:border-blue-400 transition-colors">
+        <label className="block w-full p-8 border-2 border-dashed border-white/10 rounded-lg text-center cursor-pointer hover:border-blue-400 transition-colors">
           <input
             type="file"
             accept="image/*"
@@ -99,40 +99,40 @@ export default function ImageResizePage() {
           <>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Width (px)</label>
+                <label className="block text-sm text-gray-400 mb-1">Width (px)</label>
                 <input
                   type="number"
                   value={width}
                   onChange={(e) => handleWidthChange(Number(e.target.value))}
-                  className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Height (px)</label>
+                <label className="block text-sm text-gray-400 mb-1">Height (px)</label>
                 <input
                   type="number"
                   value={height}
                   onChange={(e) => handleHeightChange(Number(e.target.value))}
-                  className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Quality (%)</label>
+                <label className="block text-sm text-gray-400 mb-1">Quality (%)</label>
                 <input
                   type="number"
                   min={1}
                   max={100}
                   value={quality}
                   onChange={(e) => setQuality(Number(e.target.value))}
-                  className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Format</label>
+                <label className="block text-sm text-gray-400 mb-1">Format</label>
                 <select
                   value={format}
                   onChange={(e) => setFormat(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-lg text-gray-900"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
                 >
                   <option value="image/jpeg">JPEG</option>
                   <option value="image/png">PNG</option>
@@ -141,7 +141,7 @@ export default function ImageResizePage() {
               </div>
             </div>
 
-            <label className="flex items-center gap-2 text-sm text-gray-600">
+            <label className="flex items-center gap-2 text-sm text-gray-400">
               <input
                 type="checkbox"
                 checked={keepAspect}
@@ -153,14 +153,14 @@ export default function ImageResizePage() {
 
             <button
               onClick={process}
-              className="w-full py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="w-full py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 transition-colors"
             >
               Resize & Compress
             </button>
 
             {result && (
               <div className="flex flex-col items-center gap-4 pt-4">
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-400">
                   {formatBytes(originalSize)} → {formatBytes(resultSize)}
                   {resultSize < originalSize && (
                     <span className="text-green-600 font-medium ml-2">

@@ -96,8 +96,8 @@ That's it! Start editing on the left to see changes here.`);
                 onClick={() => setView(v)}
                 className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
                   view === v
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white/5 text-gray-300 hover:bg-white/10"
                 }`}
               >
                 {v.charAt(0).toUpperCase() + v.slice(1)}
@@ -106,7 +106,7 @@ That's it! Start editing on the left to see changes here.`);
           </div>
           <button
             onClick={copyHtml}
-            className="text-sm text-blue-600 hover:text-blue-800"
+            className="text-sm text-indigo-400 hover:text-indigo-300"
           >
             {copied ? "Copied!" : "Copy HTML"}
           </button>
@@ -124,13 +124,13 @@ That's it! Start editing on the left to see changes here.`);
             <textarea
               value={markdown}
               onChange={(e) => setMarkdown(e.target.value)}
-              className="w-full h-96 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-gray-900"
+              className="w-full h-96 p-4 border border-white/10 rounded-lg font-mono text-sm focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
               spellCheck={false}
             />
           )}
           {(view === "split" || view === "preview") && (
             <div
-              className="w-full h-96 p-4 border border-gray-200 rounded-lg overflow-y-auto prose prose-sm max-w-none bg-white"
+              className="w-full h-96 p-4 border border-white/5 rounded-lg overflow-y-auto prose prose-sm max-w-none bg-white/5"
               dangerouslySetInnerHTML={{ __html: toHtml(markdown) }}
             />
           )}

@@ -43,11 +43,11 @@ export default function QRCodePage() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter URL, text, or any content..."
-          className="w-full h-32 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-gray-900"
+          className="w-full h-32 p-4 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
         />
 
         <div className="flex gap-4 items-center">
-          <label className="flex items-center gap-2 text-sm text-gray-600">
+          <label className="flex items-center gap-2 text-sm text-gray-400">
             Color:
             <input
               type="color"
@@ -56,7 +56,7 @@ export default function QRCodePage() {
               className="w-8 h-8 rounded cursor-pointer"
             />
           </label>
-          <label className="flex items-center gap-2 text-sm text-gray-600">
+          <label className="flex items-center gap-2 text-sm text-gray-400">
             Background:
             <input
               type="color"
@@ -70,7 +70,7 @@ export default function QRCodePage() {
         <button
           onClick={generateQR}
           disabled={!text.trim()}
-          className="w-full py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="w-full py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           Generate QR Code
         </button>

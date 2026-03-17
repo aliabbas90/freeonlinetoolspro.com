@@ -48,19 +48,19 @@ export default function TextToolsPage() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste or type your text here..."
-          className="w-full h-48 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-gray-900"
+          className="w-full h-48 p-4 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
         />
 
         {/* Stats */}
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
           {Object.entries(stats).map(([key, val]) => (
-            <div key={key} className="text-center p-2 bg-gray-50 rounded-lg">
-              <div className="text-xl font-bold text-gray-900">{val}</div>
+            <div key={key} className="text-center p-2 bg-white/5 rounded-lg">
+              <div className="text-xl font-bold text-gray-100">{val}</div>
               <div className="text-xs text-gray-500 capitalize">{key}</div>
             </div>
           ))}
-          <div className="text-center p-2 bg-gray-50 rounded-lg">
-            <div className="text-xl font-bold text-gray-900">
+          <div className="text-center p-2 bg-white/5 rounded-lg">
+            <div className="text-xl font-bold text-gray-100">
               {readingTime}m
             </div>
             <div className="text-xs text-gray-500">Read time</div>
@@ -71,31 +71,31 @@ export default function TextToolsPage() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => transform((s) => s.toUpperCase())}
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm transition-colors"
+            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 text-sm transition-colors"
           >
             UPPERCASE
           </button>
           <button
             onClick={() => transform((s) => s.toLowerCase())}
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm transition-colors"
+            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 text-sm transition-colors"
           >
             lowercase
           </button>
           <button
             onClick={() => transform(toTitleCase)}
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm transition-colors"
+            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 text-sm transition-colors"
           >
             Title Case
           </button>
           <button
             onClick={() => transform(toSlug)}
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm transition-colors"
+            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 text-sm transition-colors"
           >
             slug-case
           </button>
           <button
             onClick={() => transform((s) => s.trim().replace(/\s+/g, " "))}
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm transition-colors"
+            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 text-sm transition-colors"
           >
             Remove Extra Spaces
           </button>
@@ -108,19 +108,19 @@ export default function TextToolsPage() {
                   .join("\n")
               )
             }
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm transition-colors"
+            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 text-sm transition-colors"
           >
             Remove Empty Lines
           </button>
           <button
             onClick={copy}
-            className="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 text-sm transition-colors"
+            className="px-4 py-2 bg-indigo-500/10 text-indigo-400 rounded-lg hover:bg-blue-200 text-sm transition-colors"
           >
             Copy Text
           </button>
           <button
             onClick={() => setText("")}
-            className="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 text-sm transition-colors"
+            className="px-4 py-2 bg-red-500/10 text-red-400 rounded-lg hover:bg-red-500/20 text-sm transition-colors"
           >
             Clear
           </button>

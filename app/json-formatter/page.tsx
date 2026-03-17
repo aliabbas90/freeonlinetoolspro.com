@@ -55,10 +55,10 @@ export default function JsonFormatterPage() {
     >
       <div className="space-y-4">
         <div className="flex justify-between items-center">
-          <label className="text-sm text-gray-600">Paste your JSON:</label>
+          <label className="text-sm text-gray-400">Paste your JSON:</label>
           <button
             onClick={sample}
-            className="text-sm text-blue-600 hover:text-blue-800"
+            className="text-sm text-indigo-400 hover:text-indigo-300"
           >
             Load sample
           </button>
@@ -68,12 +68,12 @@ export default function JsonFormatterPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder='{"key": "value"}'
-          className="w-full h-48 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-gray-900"
+          className="w-full h-48 p-4 border border-white/10 rounded-lg font-mono text-sm focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
           spellCheck={false}
         />
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
             {error}
           </div>
         )}
@@ -82,7 +82,7 @@ export default function JsonFormatterPage() {
           <button
             onClick={format}
             disabled={!input.trim()}
-            className="flex-1 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500 disabled:opacity-50 transition-colors"
           >
             Format / Beautify
           </button>
@@ -98,10 +98,10 @@ export default function JsonFormatterPage() {
         {output && (
           <div className="relative">
             <div className="flex justify-between items-center mb-2">
-              <label className="text-sm text-gray-600">Result:</label>
+              <label className="text-sm text-gray-400">Result:</label>
               <button
                 onClick={copy}
-                className="text-sm text-blue-600 hover:text-blue-800"
+                className="text-sm text-indigo-400 hover:text-indigo-300"
               >
                 {copied ? "Copied!" : "Copy"}
               </button>
