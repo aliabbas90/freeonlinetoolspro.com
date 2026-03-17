@@ -59,4 +59,54 @@ export const tools: Tool[] = [
     metaDescription:
       "Generate favicons from text or emoji for free. Download as ICO and PNG. Perfect for websites and web apps. No signup required.",
   },
+  {
+    name: "Password Generator",
+    slug: "password-generator",
+    description: "Generate strong, secure passwords instantly. Customize length, symbols, and more.",
+    icon: "🔐",
+    keywords: ["password generator", "random password", "strong password generator"],
+    metaTitle: "Free Password Generator — Strong & Secure",
+    metaDescription:
+      "Generate strong, secure passwords for free. Customize length, include symbols, numbers, uppercase. Copy with one click. No data stored.",
+  },
+  {
+    name: "JSON Formatter",
+    slug: "json-formatter",
+    description: "Format, validate, and minify JSON data. Syntax highlighting and error detection.",
+    icon: "📋",
+    keywords: ["json formatter", "json validator", "json beautifier"],
+    metaTitle: "Free JSON Formatter & Validator Online",
+    metaDescription:
+      "Format, validate, and beautify JSON data online for free. Syntax highlighting, error detection, minify and copy. No signup required.",
+  },
+  {
+    name: "CSS Gradient Generator",
+    slug: "css-gradient",
+    description: "Create beautiful CSS gradients visually. Copy the CSS code with one click.",
+    icon: "🌈",
+    keywords: ["css gradient generator", "gradient maker", "css gradient"],
+    metaTitle: "Free CSS Gradient Generator Online",
+    metaDescription:
+      "Create beautiful CSS gradients visually for free. Linear and radial gradients. Copy CSS code with one click. Perfect for web designers.",
+  },
+  {
+    name: "Base64 Encoder/Decoder",
+    slug: "base64",
+    description: "Encode or decode Base64 strings instantly. Supports text and file encoding.",
+    icon: "🔄",
+    keywords: ["base64 encode", "base64 decode", "base64 converter"],
+    metaTitle: "Free Base64 Encoder & Decoder Online",
+    metaDescription:
+      "Encode and decode Base64 strings online for free. Convert text to Base64 and back instantly. No signup required.",
+  },
+  {
+    name: "Meta Tag Generator",
+    slug: "meta-tag-generator",
+    description: "Generate SEO meta tags for your website. Preview how your page looks on Google.",
+    icon: "🏷️",
+    keywords: ["meta tag generator", "seo meta tags", "og tag generator"],
+    metaTitle: "Free Meta Tag Generator for SEO",
+    metaDescription:
+      "Generate SEO meta tags for your website for free. Open Graph, Twitter cards, and more. Preview your Google search result. No signup required.",
+  },
 ];
