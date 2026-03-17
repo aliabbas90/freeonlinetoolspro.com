@@ -21,67 +21,66 @@ export async function POST(req: NextRequest) {
     let prompt = "";
 
     if (type === "daily") {
-      prompt = `You are a mystical astrologer. Generate a daily horoscope for ${sign} for today. Write in ${language}.
+      prompt = `You are a mystical astrologer. Generate a daily horoscope for ${sign} for today. Write EVERYTHING in ${language}, including ALL labels and headings — no English words at all if the language is not English.
 
-Format your response EXACTLY like this:
-OVERALL: [1 paragraph general daily reading, 3-4 sentences]
+Write it as a beautiful, flowing reading with these sections. Use the translated section names:
 
-LOVE: [1-2 sentences about love/relationships today]
+${lang === "fr" ? "GENERAL" : lang === "es" ? "GENERAL" : "OVERALL"}: [1 paragraph general daily reading, 3-4 sentences]
 
-CAREER: [1-2 sentences about career/work today]
+${lang === "fr" ? "AMOUR" : lang === "es" ? "AMOR" : "LOVE"}: [1-2 sentences about love/relationships today]
 
-HEALTH: [1-2 sentences about health/wellness today]
+${lang === "fr" ? "CARRIERE" : lang === "es" ? "CARRERA" : "CAREER"}: [1-2 sentences about career/work today]
 
-LUCKY_NUMBER: [a number between 1-99]
-LUCKY_COLOR: [a color]
-MOOD: [one word mood]
-RATING: [number 1-5 representing how good the day is]
+${lang === "fr" ? "SANTE" : lang === "es" ? "SALUD" : "HEALTH"}: [1-2 sentences about health/wellness today]
 
-Be specific, engaging, and positive but realistic. Include actionable advice.`;
+${lang === "fr" ? "NUMERO CHANCEUX" : lang === "es" ? "NUMERO DE LA SUERTE" : "LUCKY NUMBER"}: [a number between 1-99]
+${lang === "fr" ? "COULEUR DU JOUR" : lang === "es" ? "COLOR DEL DIA" : "LUCKY COLOR"}: [a color in ${language}]
+${lang === "fr" ? "HUMEUR" : lang === "es" ? "ESTADO DE ANIMO" : "MOOD"}: [one word mood in ${language}]
+${lang === "fr" ? "NOTE DU JOUR" : lang === "es" ? "PUNTUACION" : "RATING"}: [number 1-5] /5
+
+Be specific, engaging, and positive but realistic. Include actionable advice. Write everything in ${language}.`;
     } else if (type === "compatibility") {
-      prompt = `You are a mystical astrologer. Analyze the zodiac compatibility between ${sign} and ${partnerSign}. Write in ${language}.
+      prompt = `You are a mystical astrologer. Analyze the zodiac compatibility between ${sign} and ${partnerSign}. Write EVERYTHING in ${language}, including ALL labels — no English words if the language is not English.
 
-Format your response EXACTLY like this:
-OVERALL_SCORE: [number 1-100]
+${lang === "fr" ? "SCORE GLOBAL" : lang === "es" ? "PUNTUACION GENERAL" : "OVERALL SCORE"}: [number 1-100]%
 
-LOVE: [2-3 sentences about romantic compatibility]
-LOVE_SCORE: [number 1-100]
+${lang === "fr" ? "AMOUR" : lang === "es" ? "AMOR" : "LOVE"}: [2-3 sentences about romantic compatibility]
+${lang === "fr" ? "Score Amour" : lang === "es" ? "Puntuacion Amor" : "Love Score"}: [number 1-100]%
 
-FRIENDSHIP: [2-3 sentences about friendship compatibility]
-FRIENDSHIP_SCORE: [number 1-100]
+${lang === "fr" ? "AMITIE" : lang === "es" ? "AMISTAD" : "FRIENDSHIP"}: [2-3 sentences about friendship compatibility]
+${lang === "fr" ? "Score Amitie" : lang === "es" ? "Puntuacion Amistad" : "Friendship Score"}: [number 1-100]%
 
-WORK: [2-3 sentences about work compatibility]
-WORK_SCORE: [number 1-100]
+${lang === "fr" ? "TRAVAIL" : lang === "es" ? "TRABAJO" : "WORK"}: [2-3 sentences about work compatibility]
+${lang === "fr" ? "Score Travail" : lang === "es" ? "Puntuacion Trabajo" : "Work Score"}: [number 1-100]%
 
-STRENGTHS: [3 bullet points about what works well]
+${lang === "fr" ? "POINTS FORTS" : lang === "es" ? "FORTALEZAS" : "STRENGTHS"}: [3 bullet points]
 
-CHALLENGES: [3 bullet points about potential challenges]
+${lang === "fr" ? "DEFIS" : lang === "es" ? "DESAFIOS" : "CHALLENGES"}: [3 bullet points]
 
-ADVICE: [2-3 sentences of advice for this pairing]
+${lang === "fr" ? "CONSEIL" : lang === "es" ? "CONSEJO" : "ADVICE"}: [2-3 sentences of advice]
 
-Be specific and insightful.`;
+Be specific and insightful. Write everything in ${language}.`;
     } else if (type === "birthchart") {
-      prompt = `You are a mystical astrologer. Generate a personality and birth chart reading for someone born on ${birthday}. Write in ${language}.
+      prompt = `You are a mystical astrologer. Generate a personality and birth chart reading for someone born on ${birthday}. Write EVERYTHING in ${language}, including ALL labels — no English words if the language is not English.
 
-Format your response EXACTLY like this:
-SUN_SIGN: [their zodiac sign]
-ELEMENT: [Fire/Earth/Air/Water]
+${lang === "fr" ? "SIGNE SOLAIRE" : lang === "es" ? "SIGNO SOLAR" : "SUN SIGN"}: [their zodiac sign in ${language}]
+${lang === "fr" ? "ELEMENT" : lang === "es" ? "ELEMENTO" : "ELEMENT"}: [Fire/Earth/Air/Water in ${language}]
 
-PERSONALITY: [3-4 sentences about their core personality traits]
+${lang === "fr" ? "PERSONNALITE" : lang === "es" ? "PERSONALIDAD" : "PERSONALITY"}: [3-4 sentences about their core personality traits]
 
-STRENGTHS: [4 bullet points]
+${lang === "fr" ? "POINTS FORTS" : lang === "es" ? "FORTALEZAS" : "STRENGTHS"}: [4 bullet points]
 
-WEAKNESSES: [3 bullet points]
+${lang === "fr" ? "FAIBLESSES" : lang === "es" ? "DEBILIDADES" : "WEAKNESSES"}: [3 bullet points]
 
-LOVE_STYLE: [2-3 sentences about how they love]
+${lang === "fr" ? "EN AMOUR" : lang === "es" ? "EN EL AMOR" : "LOVE STYLE"}: [2-3 sentences about how they love]
 
-CAREER_PATH: [2-3 sentences about ideal careers]
+${lang === "fr" ? "CARRIERE IDEALE" : lang === "es" ? "CARRERA IDEAL" : "CAREER PATH"}: [2-3 sentences about ideal careers]
 
-LIFE_ADVICE: [2-3 sentences of personalized advice]
+${lang === "fr" ? "CONSEIL DE VIE" : lang === "es" ? "CONSEJO DE VIDA" : "LIFE ADVICE"}: [2-3 sentences of personalized advice]
 
-FAMOUS_MATCHES: [3 famous people with the same sign]
+${lang === "fr" ? "CELEBRITES DU MEME SIGNE" : lang === "es" ? "FAMOSOS DEL MISMO SIGNO" : "FAMOUS MATCHES"}: [3 famous people with the same sign]
 
-Be specific, insightful, and encouraging.`;
+Be specific, insightful, and encouraging. Write everything in ${language}.`;
     }
 
     const message = await client.messages.create({
