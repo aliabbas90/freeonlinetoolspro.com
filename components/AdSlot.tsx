@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function AdSlot({ className = "" }: { className?: string }) {
   const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
   const adRef = useRef<HTMLDivElement>(null);
   const pushed = useRef(false);
+  const [isLocal, setIsLocal] = useState(false);
 
   useEffect(() => {
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      setIsLocal(true);
+      return;
+    }
     if (!adsenseId || pushed.current) return;
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,16 +24,18 @@ export default function AdSlot({ className = "" }: { className?: string }) {
     }
   }, [adsenseId]);
 
-  if (!adsenseId) {
-    // Show placeholder in dev so you can see ad placement
+  if (isLocal) {
     return (
       <div className={`${className}`}>
-        <div className="w-full py-6 px-4 rounded-xl border border-dashed border-white/10 bg-white/[0.02] flex items-center justify-center">
-          <span className="text-xs text-gray-600">Ad Space — Visible on live site</span>
+        <div className="w-full py-8 px-4 rounded-xl border-2 border-dashed border-violet-500/20 bg-violet-500/5 flex flex-col items-center justify-center gap-1">
+          <span className="text-sm text-violet-400 font-medium">AD SPACE</span>
+          <span className="text-xs text-gray-500">Google AdSense — visible on live site</span>
         </div>
       </div>
     );
   }
+
+  if (!adsenseId) return null;
 
   return (
     <div className={`${className}`} ref={adRef}>
