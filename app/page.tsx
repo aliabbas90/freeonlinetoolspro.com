@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { tools } from "@/lib/tools-registry";
 import ToolCard from "@/components/ToolCard";
+import AdSlot from "@/components/AdSlot";
 
 export default function Home() {
   const featured = ["deal-finder", "ai-humanizer", "rate-my-portfolio", "horoscope"];
@@ -181,6 +182,11 @@ export default function Home() {
         </Link>
       </div>
 
+      {/* Ad between featured and tools */}
+      <div className="mx-auto max-w-6xl px-4">
+        <AdSlot className="mb-8" />
+      </div>
+
       {/* Tools Grid */}
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <h2 className="text-xl font-semibold text-gray-300 mb-6">
@@ -194,6 +200,9 @@ export default function Home() {
             <ToolCard key={tool.slug} tool={tool} />
           ))}
         </div>
+
+        {/* Ad after tools grid */}
+        <AdSlot className="mt-8" />
       </div>
     </div>
   );
