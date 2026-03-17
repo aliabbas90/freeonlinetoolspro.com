@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/ToolLayout";
 
-const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG || "yourtag-20";
+const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG || "freeonlinetoo-21";
 
 interface Store {
   name: string;
