@@ -83,7 +83,7 @@ export default function CssGradientPage() {
                 type="text"
                 value={color1}
                 onChange={(e) => setColor1(e.target.value)}
-                className="flex-1 p-2 border border-white/10 rounded-lg font-mono text-sm text-gray-100"
+                className="flex-1 p-2 border border-white/10 rounded-lg font-mono text-sm text-gray-100 bg-gray-900"
               />
             </div>
           </div>
@@ -100,7 +100,7 @@ export default function CssGradientPage() {
                 type="text"
                 value={color2}
                 onChange={(e) => setColor2(e.target.value)}
-                className="flex-1 p-2 border border-white/10 rounded-lg font-mono text-sm text-gray-100"
+                className="flex-1 p-2 border border-white/10 rounded-lg font-mono text-sm text-gray-100 bg-gray-900"
               />
             </div>
           </div>

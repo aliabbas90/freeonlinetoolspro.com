@@ -115,7 +115,7 @@ export default function InvoiceGeneratorPage() {
               type="text"
               value={invoiceNumber}
               onChange={(e) => setInvoiceNumber(e.target.value)}
-              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
           </div>
           <div>
@@ -124,7 +124,7 @@ export default function InvoiceGeneratorPage() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
           </div>
           <div>
@@ -133,7 +133,7 @@ export default function InvoiceGeneratorPage() {
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
           </div>
         </div>
@@ -147,14 +147,14 @@ export default function InvoiceGeneratorPage() {
               placeholder="Your name / company"
               value={from.name}
               onChange={(e) => setFrom({ ...from, name: e.target.value })}
-              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
             <input
               type="email"
               placeholder="Your email"
               value={from.email}
               onChange={(e) => setFrom({ ...from, email: e.target.value })}
-              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
             <textarea
               placeholder="Your address"
@@ -171,14 +171,14 @@ export default function InvoiceGeneratorPage() {
               placeholder="Client name / company"
               value={to.name}
               onChange={(e) => setTo({ ...to, name: e.target.value })}
-              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
             <input
               type="email"
               placeholder="Client email"
               value={to.email}
               onChange={(e) => setTo({ ...to, email: e.target.value })}
-              className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
             <textarea
               placeholder="Client address"
@@ -203,7 +203,7 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) =>
                     updateItem(item.id, "description", e.target.value)
                   }
-                  className="flex-1 p-2 border border-white/10 rounded-lg text-gray-100"
+                  className="flex-1 p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
                 />
                 <input
                   type="number"
@@ -213,7 +213,7 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) =>
                     updateItem(item.id, "quantity", Number(e.target.value))
                   }
-                  className="w-20 p-2 border border-white/10 rounded-lg text-gray-100"
+                  className="w-20 p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
                 />
                 <input
                   type="number"
@@ -224,7 +224,7 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) =>
                     updateItem(item.id, "price", Number(e.target.value))
                   }
-                  className="w-28 p-2 border border-white/10 rounded-lg text-gray-100"
+                  className="w-28 p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
                 />
                 <span className="p-2 text-sm text-gray-500 w-24 text-right">
                   {currency}{(item.quantity * item.price).toFixed(2)}
@@ -258,7 +258,7 @@ export default function InvoiceGeneratorPage() {
               max={100}
               value={taxRate || ""}
               onChange={(e) => setTaxRate(Number(e.target.value))}
-              className="w-24 p-2 border border-white/10 rounded-lg text-gray-100"
+              className="w-24 p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             />
           </div>
           <div>
@@ -266,7 +266,7 @@ export default function InvoiceGeneratorPage() {
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="p-2 border border-white/10 rounded-lg text-gray-100"
+              className="p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
             >
               <option value="$">$ USD</option>
               <option value="€">€ EUR</option>

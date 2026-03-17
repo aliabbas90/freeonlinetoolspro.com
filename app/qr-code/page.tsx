@@ -43,7 +43,7 @@ export default function QRCodePage() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter URL, text, or any content..."
-          className="w-full h-32 p-4 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
+          className="w-full h-32 p-4 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100 bg-gray-900"
         />
 
         <div className="flex gap-4 items-center">

@@ -48,7 +48,7 @@ export default function TextToolsPage() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste or type your text here..."
-          className="w-full h-48 p-4 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
+          className="w-full h-48 p-4 border border-white/10 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100 bg-gray-900"
         />
 
         {/* Stats */}

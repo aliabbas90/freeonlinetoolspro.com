@@ -104,7 +104,7 @@ export default function ImageResizePage() {
                   type="number"
                   value={width}
                   onChange={(e) => handleWidthChange(Number(e.target.value))}
-                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
                 />
               </div>
               <div>
@@ -113,7 +113,7 @@ export default function ImageResizePage() {
                   type="number"
                   value={height}
                   onChange={(e) => handleHeightChange(Number(e.target.value))}
-                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
                 />
               </div>
               <div>
@@ -124,7 +124,7 @@ export default function ImageResizePage() {
                   max={100}
                   value={quality}
                   onChange={(e) => setQuality(Number(e.target.value))}
-                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
                 />
               </div>
               <div>
@@ -132,7 +132,7 @@ export default function ImageResizePage() {
                 <select
                   value={format}
                   onChange={(e) => setFormat(e.target.value)}
-                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100"
+                  className="w-full p-2 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
                 >
                   <option value="image/jpeg">JPEG</option>
                   <option value="image/png">PNG</option>

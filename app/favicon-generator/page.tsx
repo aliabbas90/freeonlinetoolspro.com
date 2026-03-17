@@ -86,7 +86,7 @@ export default function FaviconGeneratorPage() {
                 value={text}
                 onChange={(e) => setText(e.target.value.slice(0, 3))}
                 maxLength={3}
-                className="w-full p-3 border border-white/10 rounded-lg text-2xl text-center text-gray-100"
+                className="w-full p-3 border border-white/10 rounded-lg text-2xl text-center text-gray-100 bg-gray-900"
               />
             </div>
 

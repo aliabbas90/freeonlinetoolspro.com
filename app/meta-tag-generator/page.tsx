@@ -54,7 +54,7 @@ export default function MetaTagGeneratorPage() {
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="My Awesome Website"
                 maxLength={60}
-                className="w-full p-3 border border-white/10 rounded-lg text-gray-100"
+                className="w-full p-3 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
               />
             </div>
             <div>
@@ -77,7 +77,7 @@ export default function MetaTagGeneratorPage() {
                 value={keywords}
                 onChange={(e) => setKeywords(e.target.value)}
                 placeholder="keyword1, keyword2, keyword3"
-                className="w-full p-3 border border-white/10 rounded-lg text-gray-100"
+                className="w-full p-3 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
               />
             </div>
             <div>
@@ -87,7 +87,7 @@ export default function MetaTagGeneratorPage() {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="https://example.com"
-                className="w-full p-3 border border-white/10 rounded-lg text-gray-100"
+                className="w-full p-3 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
               />
             </div>
             <div>
@@ -97,7 +97,7 @@ export default function MetaTagGeneratorPage() {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
                 placeholder="https://example.com/image.png"
-                className="w-full p-3 border border-white/10 rounded-lg text-gray-100"
+                className="w-full p-3 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
               />
             </div>
             <div>
@@ -107,7 +107,7 @@ export default function MetaTagGeneratorPage() {
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 placeholder="John Doe"
-                className="w-full p-3 border border-white/10 rounded-lg text-gray-100"
+                className="w-full p-3 border border-white/10 rounded-lg text-gray-100 bg-gray-900"
               />
             </div>
           </div>

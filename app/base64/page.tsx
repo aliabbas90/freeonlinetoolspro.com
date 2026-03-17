@@ -79,7 +79,7 @@ export default function Base64Page() {
               ? "Enter text to encode to Base64..."
               : "Enter Base64 string to decode..."
           }
-          className="w-full h-36 p-4 border border-white/10 rounded-lg font-mono text-sm focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100"
+          className="w-full h-36 p-4 border border-white/10 rounded-lg font-mono text-sm focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent resize-none text-gray-100 bg-gray-900"
           spellCheck={false}
         />
 
