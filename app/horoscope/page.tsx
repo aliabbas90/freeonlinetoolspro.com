@@ -403,9 +403,17 @@ export default function HoroscopePage() {
             <div className="mt-8 p-6 rounded-xl border border-violet-500/20" style={{
               background: "linear-gradient(135deg, rgba(124,58,237,0.05), rgba(59,130,246,0.05), rgba(236,72,153,0.03))",
             }}>
-              <div className="text-gray-200 whitespace-pre-wrap leading-relaxed">
-                {result}
-              </div>
+              <div
+                className="text-gray-200 leading-relaxed space-y-3 [&_strong]:text-violet-300 [&_strong]:font-semibold [&_hr]:border-violet-500/20 [&_hr]:my-4"
+                dangerouslySetInnerHTML={{
+                  __html: result
+                    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                    .replace(/^# (.+)$/gm, '<h2 class="text-xl font-bold text-violet-300 mb-2">$1</h2>')
+                    .replace(/^---$/gm, "<hr>")
+                    .replace(/\n\n/g, "<br><br>")
+                    .replace(/\n/g, "<br>"),
+                }}
+              />
             </div>
           )}
         </div>
