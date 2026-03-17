@@ -16,26 +16,65 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aitoolkit.app";
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteName} — Free Online Tools`,
+    default: `${siteName} — Free Online Tools | Outils Gratuits | Herramientas Gratis`,
     template: `%s | ${siteName}`,
   },
   description:
-    "Free online tools: QR code generator, image resizer, color palette extractor, text tools, favicon generator and more. No signup required. 100% free.",
+    "Free online tools: QR code generator, image resizer, AI text humanizer, daily horoscope, deal finder, invoice generator, and more. No signup. 100% free. | Outils en ligne gratuits | Herramientas en linea gratis.",
+  keywords: [
+    // English
+    "free online tools", "free tools", "online tools", "web tools", "free utilities",
+    "qr code generator", "image resizer", "password generator", "json formatter",
+    "ai text humanizer", "daily horoscope", "deal finder", "invoice generator",
+    "youtube thumbnail downloader", "css gradient generator", "meta tag generator",
+    "base64 encoder", "markdown editor", "favicon generator", "color palette extractor",
+    // French
+    "outils en ligne gratuits", "outils gratuits", "generateur qr code gratuit",
+    "redimensionner image", "horoscope du jour", "generateur de mot de passe",
+    "compresseur image", "convertisseur texte", "outils web gratuits",
+    // Spanish
+    "herramientas en linea gratis", "herramientas gratuitas", "generador codigo qr",
+    "redimensionar imagen", "horoscopo diario", "generador de contrasenas",
+    "compresor de imagenes", "herramientas web gratis",
+  ],
   metadataBase: new URL(siteUrl),
+  alternates: {
+    languages: {
+      "en": siteUrl,
+      "fr": siteUrl,
+      "es": siteUrl,
+    },
+  },
   openGraph: {
     type: "website",
     siteName,
     title: `${siteName} — Free Online Tools`,
     description:
-      "Free online tools: QR code generator, image resizer, color palette extractor, text tools, and more. No signup. Runs in your browser.",
+      "18+ free online tools: AI humanizer, daily horoscope, deal finder, QR codes, image tools & more. No signup. Runs in your browser.",
+    url: siteUrl,
+    locale: "en_US",
+    alternateLocale: ["fr_FR", "es_ES"],
   },
   twitter: {
     card: "summary_large_image",
+    title: `${siteName} — 18+ Free Online Tools`,
+    description: "Free tools: AI humanizer, horoscope, deal finder, QR codes & more. No signup required.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+  verification: {
+    google: "add-your-google-verification-code-here",
+  },
+  category: "technology",
   other: {
     "google-adsense-account": "ca-pub-4108068714803334",
   },

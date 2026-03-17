@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { signs } from "@/lib/zodiac";
 import { Locale, t, signNames } from "@/lib/i18n";
+import AdSlot from "@/components/AdSlot";
 
 type Tab = "daily" | "compatibility" | "birthchart";
 
@@ -233,6 +234,9 @@ export default function HoroscopePage() {
           </div>
         </div>
 
+        {/* Ad after hero */}
+        <AdSlot className="mb-6" />
+
         {/* Tabs */}
         <div className="flex gap-2 justify-center mb-8">
           {([
@@ -417,6 +421,9 @@ export default function HoroscopePage() {
             </div>
           )}
         </div>
+
+        {/* Ad before disclaimer */}
+        <AdSlot className="mt-8" />
 
         {/* Disclaimer */}
         <p className="text-center text-xs text-gray-600 mt-6">
