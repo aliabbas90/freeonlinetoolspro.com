@@ -3,7 +3,7 @@ import { tools } from "@/lib/tools-registry";
 import ToolCard from "@/components/ToolCard";
 
 export default function Home() {
-  const featured = ["deal-finder", "ai-humanizer", "rate-my-portfolio"];
+  const featured = ["deal-finder", "ai-humanizer", "rate-my-portfolio", "horoscope"];
   const otherTools = tools.filter((t) => !featured.includes(t.slug));
 
   return (
@@ -110,6 +110,40 @@ export default function Home() {
               </div>
             </div>
             <div className="text-indigo-400 group-hover:text-emerald-400 transition-colors text-lg font-medium whitespace-nowrap">
+              Try it free →
+            </div>
+          </div>
+        </Link>
+
+        {/* Horoscope */}
+        <Link
+          href="/horoscope"
+          className="block relative overflow-hidden rounded-2xl border border-violet-500/30 p-6 md:p-8 glow-hover group"
+          style={{
+            background: "linear-gradient(135deg, rgba(124,58,237,0.1), rgba(59,130,246,0.05), rgba(236,72,153,0.08))",
+            boxShadow: "0 0 40px rgba(124, 58, 237, 0.08)",
+          }}
+        >
+          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-violet-500/20 text-violet-400 text-xs font-bold uppercase tracking-wider">
+            Trending
+          </div>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
+            <div className="text-5xl">🔮</div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-violet-400 transition-colors">
+                Daily Horoscope & Astrology
+              </h3>
+              <p className="text-gray-400 mb-3">
+                AI-powered daily horoscope, zodiac compatibility checker, and
+                birth chart reading. Available in English, French & Spanish.
+              </p>
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">12 zodiac signs</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">Love compatibility</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-gray-300">3 languages</span>
+              </div>
+            </div>
+            <div className="text-indigo-400 group-hover:text-violet-400 transition-colors text-lg font-medium whitespace-nowrap">
               Try it free →
             </div>
           </div>

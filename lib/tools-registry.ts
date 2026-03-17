@@ -179,4 +179,14 @@ export const tools: Tool[] = [
     metaDescription:
       "Get instant AI feedback on your portfolio or resume for free. Get a score, strengths, weaknesses, and actionable improvement tips.",
   },
+  {
+    name: "Daily Horoscope & Astrology",
+    slug: "horoscope",
+    description: "Daily horoscope, zodiac compatibility, and birth chart. AI-powered astrology in 3 languages.",
+    icon: "🔮",
+    keywords: ["daily horoscope", "zodiac compatibility", "birth chart", "horoscope du jour", "astrology"],
+    metaTitle: "Free Daily Horoscope, Zodiac Compatibility & Birth Chart",
+    metaDescription:
+      "Get your free daily horoscope, zodiac compatibility, and birth chart reading. AI-powered astrology in English, French, and Spanish.",
+  },
 ];
