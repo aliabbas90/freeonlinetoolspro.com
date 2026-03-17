@@ -130,7 +130,7 @@ That's it! Start editing on the left to see changes here.`);
           )}
           {(view === "split" || view === "preview") && (
             <div
-              className="w-full h-96 p-4 border border-white/5 rounded-lg overflow-y-auto prose prose-sm max-w-none bg-white/5"
+              className="w-full h-96 p-4 border border-white/5 rounded-lg overflow-y-auto prose prose-sm prose-invert max-w-none bg-white/5 prose-headings:text-gray-100 prose-p:text-gray-300 prose-a:text-indigo-400 prose-strong:text-white prose-code:text-green-400 prose-blockquote:text-gray-400 prose-li:text-gray-300"
               dangerouslySetInnerHTML={{ __html: toHtml(markdown) }}
             />
           )}

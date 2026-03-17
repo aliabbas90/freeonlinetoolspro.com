@@ -159,4 +159,24 @@ export const tools: Tool[] = [
     metaDescription:
       "Encode and decode URLs online for free. Handle special characters, percent encoding, and query strings instantly. No signup required.",
   },
+  {
+    name: "AI Text Humanizer",
+    slug: "ai-humanizer",
+    description: "Make AI-generated text sound natural and human-written. Works with ChatGPT, Claude, Gemini.",
+    icon: "🤖",
+    keywords: ["ai text humanizer", "humanize ai text", "bypass ai detection", "ai rewriter"],
+    metaTitle: "Free AI Text Humanizer — Make AI Text Sound Human",
+    metaDescription:
+      "Make AI-generated text sound natural and human-written for free. Works with ChatGPT, Claude, Gemini. Choose tone: casual, professional, academic, creative.",
+  },
+  {
+    name: "Rate My Portfolio",
+    slug: "rate-my-portfolio",
+    description: "Get instant AI feedback on your portfolio or resume. Score, strengths, and actionable tips.",
+    icon: "📊",
+    keywords: ["rate my portfolio", "portfolio review", "resume review ai", "portfolio feedback"],
+    metaTitle: "Rate My Portfolio & Resume — Free AI Review",
+    metaDescription:
+      "Get instant AI feedback on your portfolio or resume for free. Get a score, strengths, weaknesses, and actionable improvement tips.",
+  },
 ];
