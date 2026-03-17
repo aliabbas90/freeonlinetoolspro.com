@@ -109,4 +109,54 @@ export const tools: Tool[] = [
     metaDescription:
       "Generate SEO meta tags for your website for free. Open Graph, Twitter cards, and more. Preview your Google search result. No signup required.",
   },
+  {
+    name: "Smart Deal Finder",
+    slug: "deal-finder",
+    description: "Find the best deals and cheaper alternatives for any product. Compare prices across stores.",
+    icon: "💰",
+    keywords: ["find cheaper alternative", "price comparison", "best deal finder", "dupe finder"],
+    metaTitle: "Free Deal Finder — Find Cheaper Alternatives for Any Product",
+    metaDescription:
+      "Find the best deals and cheaper alternatives for any product. Compare prices across Amazon, AliExpress, eBay and more. Save money instantly.",
+  },
+  {
+    name: "Invoice Generator",
+    slug: "invoice-generator",
+    description: "Create professional invoices for free. Download as PDF instantly. No signup needed.",
+    icon: "🧾",
+    keywords: ["free invoice generator", "invoice maker", "create invoice online"],
+    metaTitle: "Free Invoice Generator Online — Create & Download PDF",
+    metaDescription:
+      "Create professional invoices for free. Add items, taxes, discounts. Download as PDF instantly. No signup required. Perfect for freelancers.",
+  },
+  {
+    name: "YouTube Thumbnail Downloader",
+    slug: "youtube-thumbnail",
+    description: "Download YouTube video thumbnails in all sizes. Just paste the video URL.",
+    icon: "▶️",
+    keywords: ["youtube thumbnail downloader", "youtube thumbnail grabber", "yt thumbnail download"],
+    metaTitle: "Free YouTube Thumbnail Downloader — All Sizes",
+    metaDescription:
+      "Download YouTube video thumbnails in HD, SD, and all sizes for free. Just paste the video URL. No signup required.",
+  },
+  {
+    name: "Markdown Editor",
+    slug: "markdown-editor",
+    description: "Write and preview Markdown in real-time. Export to HTML. Free online editor.",
+    icon: "✍️",
+    keywords: ["markdown editor online", "markdown preview", "markdown to html"],
+    metaTitle: "Free Online Markdown Editor with Live Preview",
+    metaDescription:
+      "Write and preview Markdown in real-time for free. Export to HTML. Supports tables, code blocks, images and more. No signup required.",
+  },
+  {
+    name: "URL Encoder/Decoder",
+    slug: "url-encoder",
+    description: "Encode or decode URLs instantly. Handle special characters in URLs with ease.",
+    icon: "🔗",
+    keywords: ["url encoder", "url decoder", "percent encoding"],
+    metaTitle: "Free URL Encoder & Decoder Online",
+    metaDescription:
+      "Encode and decode URLs online for free. Handle special characters, percent encoding, and query strings instantly. No signup required.",
+  },
 ];
