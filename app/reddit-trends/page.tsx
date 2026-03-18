@@ -19,15 +19,15 @@ interface Post {
 }
 
 const CATEGORIES = [
-  { key: "hot", label: "Hot", subs: ["all"] },
-  { key: "tech", label: "Tech", subs: ["technology", "programming", "webdev"] },
-  { key: "news", label: "News", subs: ["worldnews", "news"] },
-  { key: "funny", label: "Funny", subs: ["funny", "memes"] },
-  { key: "science", label: "Science", subs: ["science", "space"] },
-  { key: "gaming", label: "Gaming", subs: ["gaming", "pcgaming"] },
-  { key: "business", label: "Business", subs: ["business", "entrepreneur"] },
-  { key: "finance", label: "Finance", subs: ["wallstreetbets", "investing", "CryptoCurrency"] },
-  { key: "askreddit", label: "AskReddit", subs: ["AskReddit"] },
+  { key: "hot", label: "Hot" },
+  { key: "tech", label: "Tech" },
+  { key: "news", label: "News" },
+  { key: "funny", label: "Funny" },
+  { key: "science", label: "Science" },
+  { key: "gaming", label: "Gaming" },
+  { key: "business", label: "Business" },
+  { key: "finance", label: "Finance" },
+  { key: "askreddit", label: "AskReddit" },
 ];
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -62,36 +62,6 @@ function formatNumber(n: number): string {
   return n.toString();
 }
 
-async function fetchSubreddit(sub: string, time: string): Promise<Post[]> {
-  try {
-    const res = await fetch(
-      `https://www.reddit.com/r/${sub}/top.json?t=${time}&limit=10`
-    );
-    if (!res.ok) return [];
-    const data = await res.json();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (data?.data?.children || []).map((child: any) => ({
-      id: child.data.id,
-      title: child.data.title,
-      subreddit: child.data.subreddit,
-      author: child.data.author,
-      score: child.data.score,
-      num_comments: child.data.num_comments,
-      url: child.data.url,
-      permalink: `https://reddit.com${child.data.permalink}`,
-      thumbnail: child.data.thumbnail?.startsWith("http")
-        ? child.data.thumbnail
-        : null,
-      created_utc: child.data.created_utc,
-      is_video: child.data.is_video,
-      selftext: child.data.selftext?.substring(0, 200) || "",
-      link_flair_text: child.data.link_flair_text,
-    }));
-  } catch {
-    return [];
-  }
-}
-
 export default function RedditTrends() {
   const [category, setCategory] = useState("hot");
   const [time, setTime] = useState("day");
@@ -100,22 +70,9 @@ export default function RedditTrends() {
 
   useEffect(() => {
     setLoading(true);
-    const cat = CATEGORIES.find((c) => c.key === category) || CATEGORIES[0];
-
-    Promise.all(cat.subs.map((sub) => fetchSubreddit(sub, time)))
-      .then((results) => {
-        const seen = new Set<string>();
-        const all = results
-          .flat()
-          .filter((p) => {
-            if (seen.has(p.id)) return false;
-            seen.add(p.id);
-            return true;
-          })
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 30);
-        setPosts(all);
-      })
+    fetch(`/api/reddit?category=${category}&time=${time}`)
+      .then((r) => r.json())
+      .then((data) => setPosts(data.posts || []))
       .catch(() => setPosts([]))
       .finally(() => setLoading(false));
   }, [category, time]);
