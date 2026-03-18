@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { tools } from "@/lib/tools-registry";
-import ToolCard from "@/components/ToolCard";
+import ToolsGrid from "@/components/ToolsGrid";
 import AdSlot from "@/components/AdSlot";
 
 export default function Home() {
@@ -192,14 +192,7 @@ export default function Home() {
         <h2 className="text-xl font-semibold text-gray-300 mb-6">
           All Tools
         </h2>
-        <div
-          id="tools"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          {otherTools.map((tool) => (
-            <ToolCard key={tool.slug} tool={tool} />
-          ))}
-        </div>
+        <ToolsGrid tools={otherTools} />
 
         {/* Ad after tools grid */}
         <AdSlot className="mt-8" />
