@@ -262,6 +262,7 @@ export default function RedditTrends() {
                     <img
                       src={post.thumbnail}
                       alt=""
+                      referrerPolicy="no-referrer"
                       className="w-20 h-20 rounded-lg object-cover bg-white/5"
                     />
                   </div>
