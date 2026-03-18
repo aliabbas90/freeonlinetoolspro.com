@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 const CATEGORIES: Record<string, string[]> = {
   hot: ["all"],
   tech: ["technology", "programming", "webdev", "gadgets"],
@@ -25,7 +27,7 @@ export async function GET(req: NextRequest) {
           `https://www.reddit.com/r/${sub}/top.json?t=${time}&limit=10`,
           {
             headers: { "User-Agent": "Toolbox/1.0" },
-            next: { revalidate: 300 }, // cache 5 min
+            cache: "no-store",
           }
         );
         if (!res.ok) return [];
