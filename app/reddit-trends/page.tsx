@@ -19,16 +19,22 @@ interface Post {
 }
 
 const CATEGORIES = [
-  { key: "hot", label: "Hot", icon: "🔥" },
-  { key: "tech", label: "Tech", icon: "💻" },
-  { key: "news", label: "News", icon: "📰" },
-  { key: "funny", label: "Funny", icon: "😂" },
-  { key: "science", label: "Science", icon: "🔬" },
-  { key: "gaming", label: "Gaming", icon: "🎮" },
-  { key: "business", label: "Business", icon: "💼" },
-  { key: "finance", label: "Finance", icon: "📈" },
-  { key: "askreddit", label: "AskReddit", icon: "❓" },
+  { key: "hot", label: "Hot", subs: ["all"] },
+  { key: "tech", label: "Tech", subs: ["technology", "programming", "webdev"] },
+  { key: "news", label: "News", subs: ["worldnews", "news"] },
+  { key: "funny", label: "Funny", subs: ["funny", "memes"] },
+  { key: "science", label: "Science", subs: ["science", "space"] },
+  { key: "gaming", label: "Gaming", subs: ["gaming", "pcgaming"] },
+  { key: "business", label: "Business", subs: ["business", "entrepreneur"] },
+  { key: "finance", label: "Finance", subs: ["wallstreetbets", "investing", "CryptoCurrency"] },
+  { key: "askreddit", label: "AskReddit", subs: ["AskReddit"] },
 ];
+
+const CATEGORY_ICONS: Record<string, string> = {
+  hot: "🔥", tech: "💻", news: "📰", funny: "😂",
+  science: "🔬", gaming: "🎮", business: "💼",
+  finance: "📈", askreddit: "❓",
+};
 
 const TIME_FILTERS = [
   { key: "hour", label: "Now" },
@@ -56,6 +62,36 @@ function formatNumber(n: number): string {
   return n.toString();
 }
 
+async function fetchSubreddit(sub: string, time: string): Promise<Post[]> {
+  try {
+    const res = await fetch(
+      `https://www.reddit.com/r/${sub}/top.json?t=${time}&limit=10`
+    );
+    if (!res.ok) return [];
+    const data = await res.json();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (data?.data?.children || []).map((child: any) => ({
+      id: child.data.id,
+      title: child.data.title,
+      subreddit: child.data.subreddit,
+      author: child.data.author,
+      score: child.data.score,
+      num_comments: child.data.num_comments,
+      url: child.data.url,
+      permalink: `https://reddit.com${child.data.permalink}`,
+      thumbnail: child.data.thumbnail?.startsWith("http")
+        ? child.data.thumbnail
+        : null,
+      created_utc: child.data.created_utc,
+      is_video: child.data.is_video,
+      selftext: child.data.selftext?.substring(0, 200) || "",
+      link_flair_text: child.data.link_flair_text,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 export default function RedditTrends() {
   const [category, setCategory] = useState("hot");
   const [time, setTime] = useState("day");
@@ -64,9 +100,22 @@ export default function RedditTrends() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/api/reddit?category=${category}&time=${time}`)
-      .then((r) => r.json())
-      .then((data) => setPosts(data.posts || []))
+    const cat = CATEGORIES.find((c) => c.key === category) || CATEGORIES[0];
+
+    Promise.all(cat.subs.map((sub) => fetchSubreddit(sub, time)))
+      .then((results) => {
+        const seen = new Set<string>();
+        const all = results
+          .flat()
+          .filter((p) => {
+            if (seen.has(p.id)) return false;
+            seen.add(p.id);
+            return true;
+          })
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 30);
+        setPosts(all);
+      })
       .catch(() => setPosts([]))
       .finally(() => setLoading(false));
   }, [category, time]);
@@ -88,7 +137,7 @@ export default function RedditTrends() {
                 : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
             }`}
           >
-            {cat.icon} {cat.label}
+            {CATEGORY_ICONS[cat.key]} {cat.label}
           </button>
         ))}
       </div>
@@ -209,6 +258,7 @@ export default function RedditTrends() {
                 {/* Thumbnail */}
                 {post.thumbnail && (
                   <div className="hidden sm:block flex-shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={post.thumbnail}
                       alt=""
