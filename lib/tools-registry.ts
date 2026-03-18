@@ -288,4 +288,13 @@ export const tools: Tool[] = [
     metaTitle: "Generateur d'Annonce Gratuit — Leboncoin, Vinted, Marketplace",
     metaDescription: "Creez des annonces parfaites pour Leboncoin, Vinted et Facebook Marketplace gratuitement. Options: echange, prix negociable, livraison. Copiez en un clic.",
   },
+  {
+    name: "Reddit Trending",
+    slug: "reddit-trends",
+    description: "See what's trending on Reddit right now. Top posts across tech, news, gaming, finance & more.",
+    icon: "🔥",
+    keywords: ["reddit trending", "top reddit posts", "best of reddit today", "reddit trends", "trending on reddit", "reddit top posts today"],
+    metaTitle: "Reddit Trending — Best Posts on Reddit Today",
+    metaDescription: "See what's trending on Reddit right now. Top posts across tech, news, funny, gaming, finance and more. Updated in real-time. Free, no login required.",
+  },
 ];
